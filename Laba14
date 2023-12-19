@@ -1,0 +1,43 @@
+Завдання 1
+#include <stdio.h>
+#include <limits.h>
+
+#define MAX_SIZE 100
+
+int main() {
+    int array[MAX_SIZE], n, i, min, max, distance;
+    printf("Vvedite kolichesto elementov masiva  (NE > %d): ", MAX_SIZE);
+    scanf_s("%d", &n);
+
+    printf("Vvedite elementu masiva \n");
+    for (i = 0; i < n; printf("Elementu %d: ", ++i))
+        scanf_s("%d", &array[i]);
+    min = max = array[0];
+    for (i = 1; i < n; i++) {
+        if (array[i] < min) min = array[i];
+        if (array[i] > max) max = array[i];
+    }
+    distance = &array[max] - &array[min];
+    printf("\nMIN %d\nMax: %d\nVidstan %d\n", min, max, distance);
+    return 0;
+}
+
+Завдання 2
+#include <stdio.h>
+#define MAX_SIZE 100
+int main() {
+    int array[MAX_SIZE], n, sum = 0;
+    printf("Vedite kolichestvo elementov masiva (NE > %d): ", MAX_SIZE);
+    scanf_s("%d", &n);
+    printf("Vvedite elementu masiva \n");
+    for (int i = 0; i < n; i++) {
+        printf("element %d ", i + 1);
+        scanf_s("%d", &array[i]);
+        sum += array[i];
+    }
+    if (n > 0) {
+        printf("srednee znachenia elementa == %lf\n", (double)sum / n);
+    }
+    else {
+        printf("Masiv pystoy(srednego znachenia nety).\n");
+    }
